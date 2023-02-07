@@ -1,7 +1,5 @@
 version: "3.8"
-
 services:
-  
   vault-server:
     image: vault:latest
     ports:
@@ -16,7 +14,6 @@ services:
         ipv4_address: 172.21.0.10
         aliases:
           - vault-server
-
   vault-client:
     build: .
     environment:
@@ -26,10 +23,8 @@ services:
         ipv4_address: 172.21.0.20
         aliases:
           - vault-client
-
 networks:
   vault-network:
     ipam:
       config:
         - subnet: 172.21.0.0/24
-

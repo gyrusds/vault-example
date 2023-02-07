@@ -1,3 +1,20 @@
-# docker-vault
+# Vault Test
 
-Vault example using docker and docker-compose that waits on vault to initialize before creating vault secrets.
+## Launch
+
+```sh
+docker-compose build
+docker-compose up
+```
+
+## Access
+
+Root:
+
+- Token: `vault-plaintext-root-token`
+
+## Extra
+
+### Ansible
+
+How to read a secret from Ansible.

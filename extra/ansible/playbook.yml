@@ -1,0 +1,17 @@
+- name: Vault
+  hosts: localhost
+  vars:
+    - vault_url: http://0.0.0.0:8200
+    - vault_token: vault-plaintext-root-token # This should be secret and NOT hardcoded here.
+  tasks:
+    - name: Get secret
+      community.hashi_vault.vault_kv2_get:
+        url: '{{vault_url}}'
+        path: mySecret
+        auth_method: token
+        token: '{{vault_token}}'
+      register: secret
+
+    - name: Display the secret
+      ansible.builtin.debug:
+        msg: "The secret value is: {{ secret.secret }}"
